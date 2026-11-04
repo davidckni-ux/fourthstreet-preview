@@ -98,3 +98,34 @@
     }
   }
 })();
+
+/* Review slider: arrows nudge the native scroll one card at a time; long reviews get a Read more toggle. */
+(function () {
+  'use strict';
+  document.querySelectorAll('[data-slider]').forEach(function (slider) {
+    var track = slider.querySelector('.reviews-track');
+    if (!track) return;
+    slider.querySelectorAll('.slider-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = track.querySelector('.review-card');
+        var step = card ? card.getBoundingClientRect().width + 16 : 320;
+        track.scrollBy({ left: step * Number(btn.getAttribute('data-dir')), behavior: 'smooth' });
+      });
+    });
+    slider.querySelectorAll('.review-card').forEach(function (card) {
+      var text = card.querySelector('.review-text');
+      var more = card.querySelector('.read-more');
+      if (!text || !more) return;
+      text.classList.add('is-clamped');
+      if (text.scrollHeight > text.clientHeight + 2) {
+        more.hidden = false;
+        more.addEventListener('click', function () {
+          var open = text.classList.toggle('is-clamped') === false;
+          more.textContent = open ? 'Show less' : 'Read more';
+        });
+      } else {
+        text.classList.remove('is-clamped');
+      }
+    });
+  });
+})();
