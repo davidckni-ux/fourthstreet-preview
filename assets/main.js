@@ -1,6 +1,29 @@
-/* 4th Street Mini Storage: mobile nav and GA4 events. No dependencies. */
+/* 4th Street Mini Storage: header, mobile nav, reveal on scroll, GA4 events. No dependencies. */
+document.documentElement.classList.add('js');
 (function () {
   'use strict';
+
+  /* The header compacts once the page has scrolled a little. */
+  var header = document.querySelector('.site-header');
+  function onScroll() { header.classList.toggle('is-compact', window.scrollY > 24); }
+  if (header) {
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* Sections marked data-reveal fade up once as they enter the viewport. Without
+     IntersectionObserver, or under reduced motion (handled in CSS), they just show. */
+  var targets = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function (el) { io.observe(el); });
+  } else {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  }
 
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('primary-nav');
@@ -99,16 +122,21 @@
   }
 })();
 
-/* Review slider: arrows nudge the native scroll one card at a time; long reviews get a Read more toggle. */
+/* Review slider: arrows nudge the native scroll one card at a time; long reviews get a Read more toggle.
+   The arrows live in the slider's head row ([data-slider-controls]) or inside the slider itself. */
 (function () {
   'use strict';
   document.querySelectorAll('[data-slider]').forEach(function (slider) {
     var track = slider.querySelector('.reviews-track');
     if (!track) return;
-    slider.querySelectorAll('.slider-btn').forEach(function (btn) {
+    var controls = slider.querySelectorAll('.slider-btn');
+    if (!controls.length && slider.id) {
+      controls = document.querySelectorAll('[data-slider-controls="' + slider.id + '"] .slider-btn');
+    }
+    controls.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var card = track.querySelector('.review-card');
-        var step = card ? card.getBoundingClientRect().width + 16 : 320;
+        var step = card ? card.getBoundingClientRect().width + 20 : 380;
         track.scrollBy({ left: step * Number(btn.getAttribute('data-dir')), behavior: 'smooth' });
       });
     });

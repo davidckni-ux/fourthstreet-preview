@@ -1,0 +1,3 @@
+Barlow and Barlow Semi Condensed, designed by Jeremy Tribby (https://tribby.com/fonts/barlow/).
+Licensed under the SIL Open Font License, Version 1.1: https://openfontlicense.org
+Latin subsets only, as served by Google Fonts, 500/700 (Barlow) and 600/700 (Barlow Semi Condensed).
