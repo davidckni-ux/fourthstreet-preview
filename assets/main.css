@@ -146,7 +146,9 @@ button { font: inherit; }
 .site-header { position: relative; z-index: 20; background: var(--surface); border-bottom: 1px solid var(--border-soft); }
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); min-height: 64px; padding-block: var(--sp-2); }
 .brand { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-strong); font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; text-decoration: none; }
-.brand-icon { width: 30px; height: 30px; color: var(--amber-500); }
+.brand-icon { width: 32px; height: 32px; color: var(--primary); }
+.brand-light .brand-icon { color: #fff; }
+.brand-light .brand-icon .mark-stroke { stroke: var(--green-900); }
 .brand-text { display: flex; flex-direction: column; }
 .brand-top { font-size: 1.05rem; }
 .brand-bottom { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary); }
@@ -288,7 +290,9 @@ button { font: inherit; }
 .nap-facts { margin: 0 0 var(--sp-4); padding: 0; list-style: none; }
 .nap-facts li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; }
 .nap-facts .icon { color: var(--primary); }
-.nap-map iframe { width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.nap-map .map-image { display: block; }
+.nap-map img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-placeholder .icon { color: var(--primary); }
 
 /* ---------- FAQ ---------- */
 .faq { border-top: 1px solid var(--border); }
