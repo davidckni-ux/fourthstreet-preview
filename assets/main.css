@@ -429,5 +429,3 @@ body { padding-bottom: calc(var(--sticky-bar-h) + env(safe-area-inset-bottom)); 
 .fs-form .fluentform .ff-btn-submit:hover { background: var(--accent-hover) !important; }
 .fs-form .fluentform .ff-message-success { padding: var(--sp-3); border-radius: var(--radius-sm); background: var(--green-100); color: var(--primary-strong); }
 
-/* ---------- Notice box ---------- */
-.notice-box { margin: 0 0 var(--sp-4); padding: var(--sp-3) var(--sp-4); border-left: 4px solid var(--amber-500); border-radius: var(--radius-sm); background: var(--amber-100); color: var(--ink-700); }
