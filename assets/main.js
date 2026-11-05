@@ -66,7 +66,7 @@ document.documentElement.classList.add('js');
   });
 
   if (document.body.classList.contains('page-thank-you')) {
-    track('generate_lead', { page_location: location.href });
+    track('generate_lead', { page_location: location.href, reservation_synced: document.body.classList.contains('has-reservation-number') ? 'yes' : 'no' });
   }
 })();
 
