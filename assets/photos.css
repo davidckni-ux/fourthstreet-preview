@@ -1,0 +1,28 @@
+/* Photo mock only (2026-11-10). Nothing here is in the theme yet. */
+
+/* Review ribbon so the mock pages are easy to tell apart from the current ones. */
+.mock-bar { display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: center; padding: .5rem var(--gutter); background: var(--amber-100); color: var(--ink-900); font-size: .9rem; border-bottom: 1px solid var(--amber-500); }
+.mock-bar strong { font-family: var(--numeral); letter-spacing: .02em; }
+.mock-bar a { color: var(--green-700); }
+.mock-bar .sep { margin-left: auto; }
+
+/* Storage units page: the facility photo beside what every unit includes. */
+.photo-band { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.photo-band-media { margin: 0; }
+.photo-band-media img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r); box-shadow: var(--shadow-2); }
+.photo-band h2 { margin-bottom: .75rem; }
+.photo-band .check-list { margin-bottom: 0; }
+@media (min-width: 861px) {
+  .photo-band { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+  .photo-band-media img { aspect-ratio: 4 / 3; }
+}
+
+/* About page: an ordinary image block in the page copy, trimmed to 16:10 so it does not swamp the text. */
+.about-prose .wp-block-image img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; box-shadow: var(--shadow-2); }
+
+/* Home hero photo. The theme today shows it at a flat 28%, which lets bright sky sit behind the small text.
+   Here it is dimmed where the copy is and stronger where it is not. */
+.hero-photo { opacity: .16; object-position: 25% 50%; -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, .25), #000 35%); mask-image: linear-gradient(180deg, rgba(0, 0, 0, .25), #000 35%); }
+@media (min-width: 861px) {
+  .hero-photo { opacity: .45; object-position: 50% 50%; -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .15) 50%, #000 85%); mask-image: linear-gradient(90deg, rgba(0, 0, 0, .15) 50%, #000 85%); }
+}
