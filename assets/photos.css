@@ -1,17 +1,26 @@
 /* Photo mock only (2026-11-10). Nothing here is in the theme yet. */
 
 /* Review ribbon so the mock pages are easy to tell apart from the current ones. */
-.mock-bar { display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: center; padding: .5rem var(--gutter); background: var(--amber-100); color: var(--ink-900); font-size: .9rem; border-bottom: 1px solid var(--amber-500); }
+.mock-bar { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; align-items: center; padding: .5rem var(--gutter); background: var(--amber-100); color: var(--ink-900); font-size: .9rem; border-bottom: 1px solid var(--amber-500); }
 .mock-bar strong { font-family: var(--numeral); letter-spacing: .02em; }
 .mock-bar a { color: var(--green-700); }
+.mock-bar a[aria-current] { color: var(--ink-900); font-weight: 700; text-decoration: none; }
+.mock-group a { margin-left: .2rem; }
 .mock-bar .sep { margin-left: auto; }
+
+/* All photos sheet. */
+.photo-sheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: clamp(1.25rem, 3vw, 2rem); }
+.sheet-card { margin: 0; }
+.sheet-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); box-shadow: var(--shadow-2); }
+.sheet-card figcaption { display: grid; gap: .15rem; margin-top: .75rem; font-size: .95rem; color: var(--ink-700); }
+.sheet-card figcaption strong { font-family: var(--display); font-size: 1.25rem; color: var(--green-900); }
 
 /* Storage units page: the facility photo beside what every unit includes. */
 .photo-band { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; margin-top: clamp(2.5rem, 5vw, 4rem); }
 .photo-band-media { margin: 0; }
 .photo-band-media img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r); box-shadow: var(--shadow-2); }
 .photo-band h2 { margin-bottom: .75rem; }
-.photo-band .check-list { margin-bottom: 0; }
+.photo-band .check-list, .photo-band-copy p:last-child { margin-bottom: 0; }
 @media (min-width: 861px) {
   .photo-band { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
   .photo-band-media img { aspect-ratio: 4 / 3; }
@@ -25,4 +34,9 @@
 .hero-photo { opacity: .16; object-position: 25% 50%; -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, .25), #000 35%); mask-image: linear-gradient(180deg, rgba(0, 0, 0, .25), #000 35%); }
 @media (min-width: 861px) {
   .hero-photo { opacity: .45; object-position: 50% 50%; -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .15) 50%, #000 85%); mask-image: linear-gradient(90deg, rgba(0, 0, 0, .15) 50%, #000 85%); }
+}
+
+/* Option B hero (sunlit doors): brighter sky behind the copy, so it is dimmed a touch more there. */
+@media (min-width: 861px) {
+  .hero-sunlit .hero-photo { -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .1) 50%, #000 85%); mask-image: linear-gradient(90deg, rgba(0, 0, 0, .1) 50%, #000 85%); }
 }
