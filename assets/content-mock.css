@@ -1,0 +1,27 @@
+/* Content mock only (2026-11-20). Nothing here is in the theme yet. */
+
+/* Review ribbon and notes, so mock pages are easy to tell apart from the current ones. */
+.mock-bar { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; align-items: center; padding: .5rem var(--gutter); background: var(--amber-100); color: var(--ink-900); font-size: .9rem; border-bottom: 1px solid var(--amber-500); }
+.mock-bar strong { font-family: var(--numeral); letter-spacing: .02em; }
+.mock-bar a { color: var(--green-700); }
+.mock-bar .sep { margin-left: auto; }
+.mock-notes { padding: .75rem var(--gutter) 1rem; background: #fffaf0; border-bottom: 1px solid var(--amber-500); font-size: .92rem; color: var(--ink-900); }
+.mock-notes summary { cursor: pointer; font-weight: 700; }
+.mock-notes-body { display: grid; gap: 1rem 2.5rem; margin-top: .75rem; max-width: 1200px; }
+.mock-notes h2 { margin: 0 0 .35rem; font-size: 1rem; font-family: inherit; color: var(--ink-900); }
+.mock-notes ul { margin: 0; padding-left: 1.1rem; }
+.mock-notes li { margin-bottom: .3rem; }
+@media (min-width: 861px) { .mock-notes-body { grid-template-columns: 1fr 1fr; } }
+.mock-flag { display: inline-block; margin-left: .35rem; padding: .1rem .55rem; border: 1px solid var(--amber-500); border-radius: 999px; background: var(--amber-100); font-family: var(--body, inherit); font-size: .75rem; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--ink-900); vertical-align: middle; white-space: nowrap; }
+
+/* Proposed page styles. These would move into the theme stylesheet on approval. */
+.trade-grid { align-items: stretch; }
+.trade h3 { margin-bottom: .5rem; font-size: 1.25rem; }
+.trade p { margin: 0; color: var(--ink-700); }
+.trade .mock-flag { margin: .75rem 0 0; }
+.trade-other .tag-list { margin-bottom: .75rem; }
+.trade-other .tag-list li { background: var(--cream-50); }
+.size-dims { margin: -.25rem 0 .75rem; font-size: .92rem; color: var(--ink-500); }
+@media (min-width: 760px) and (max-width: 959px) { .trade-grid.grid-3 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .trade-other { grid-column: span 2; } }
+.faq-item summary .mock-flag { margin-right: auto; }
