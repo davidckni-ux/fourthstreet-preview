@@ -40,3 +40,6 @@
 @media (min-width: 861px) {
   .hero-sunlit .hero-photo { -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .1) 50%, #000 85%); mask-image: linear-gradient(90deg, rgba(0, 0, 0, .1) 50%, #000 85%); }
 }
+
+/* 12x20 unit page: with the unit's photo in the hero, the floor plan sits in the "What fits" card. */
+.unit-detail .card .unit-plan { margin: 0 0 1.25rem; border: 1px solid var(--cream-200); border-radius: var(--r-sm); }
